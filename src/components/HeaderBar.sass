@@ -1,0 +1,29 @@
+@import '../etc/vars'
+
+.HeaderBar
+  position: fixed
+  top: 0
+  width: 100%
+  height: 48px
+  border-bottom: 1px solid #000
+  display: flex
+  justify-content: flex-start
+  background: #fccd4d
+  background: linear-gradient(to right, #fccd4d 0%,#fbdf93 100%)
+  z-index: $zindexMenu
+
+  a.menu
+    padding: 13px
+    color: #000
+    text-decoration: none
+    z-index: $zindexMenuButton
+
+  .Text.headerTitle
+    text-align: center
+    position: absolute
+    width: 100%
+    margin-left: 10px
+    color: #000
+    font-size: 1.8em
+    line-height: 48px
+
