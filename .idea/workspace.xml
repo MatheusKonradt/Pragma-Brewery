@@ -90,7 +90,7 @@
           <entry key="js" value="22526" />
           <entry key="json" value="52" />
           <entry key="jsx" value="4" />
-          <entry key="md" value="3444" />
+          <entry key="md" value="3449" />
           <entry key="sass" value="2695" />
         </counts>
       </usages-collector>
@@ -101,7 +101,7 @@
           <entry key="JSON" value="52" />
           <entry key="JSX Harmony" value="4" />
           <entry key="JavaScript" value="22526" />
-          <entry key="Markdown" value="3444" />
+          <entry key="Markdown" value="3449" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="Sass" value="2695" />
         </counts>
@@ -167,10 +167,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/DashboardView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="465">
               <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -179,12 +179,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="390">
-                <caret line="26" column="274" selection-start-line="26" selection-start-column="274" selection-end-line="26" selection-end-column="274" />
+              <first_editor relative-caret-position="375">
+                <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
               </first_editor>
               <second_editor />
             </state>
@@ -299,8 +299,8 @@
         <option value="$PROJECT_DIR$/src/services/ThermometersFacade.js" />
         <option value="$PROJECT_DIR$/src/views/DashboardView.sass" />
         <option value="$PROJECT_DIR$/src/components/Grid.sass" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/views/DashboardView.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -365,23 +365,6 @@
             <path>
               <item name="pragma-brewery" type="b2602c69:ProjectViewProjectNode" />
               <item name="pragma-brewery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pragma-brewery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pragma-brewery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pragma-brewery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pragma-brewery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pragma-brewery" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pragma-brewery" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -519,7 +502,7 @@
       <workItem from="1541177106060" duration="1804000" />
       <workItem from="1541178969040" duration="4299000" />
       <workItem from="1541185014345" duration="46238000" />
-      <workItem from="1541344355924" duration="23207000" />
+      <workItem from="1541344355924" duration="23408000" />
     </task>
     <servers />
   </component>
@@ -556,7 +539,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75548000" />
+    <option name="totallyTimeSpent" value="75749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -977,21 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="390">
-            <caret line="26" column="274" selection-start-line="26" selection-start-column="274" selection-end-line="26" selection-end-column="274" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/ThermometersView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -1004,11 +972,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/DashboardView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="465">
           <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="375">
+            <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
