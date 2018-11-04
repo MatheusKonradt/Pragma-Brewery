@@ -8,14 +8,21 @@ class GraphController {
    * @param {HTMLCanvasElement} $canvas
    */
   constructor($canvas) {
-    this.$canvas = $canvas;
-    if ($canvas) {
-      this.ctx = $canvas.getContext('2d');
-      this.updateGraphSize();
-    }
+    if ($canvas) this.setCanvas($canvas);
     this.values = [];
     this.setMaxDisplayedValues(15);
     this.setMarginOffset(0.3);
+  }
+
+  /**
+   * @param {HTMLCanvasElement} $canvas
+   * @return {GraphController}
+   */
+  setCanvas($canvas) {
+    this.$canvas = $canvas;
+    this.ctx = $canvas.getContext('2d');
+    this.refreshCanvasSpace();
+    return this;
   }
 
   /**
@@ -67,7 +74,7 @@ class GraphController {
   /**
    * @return {GraphController}
    */
-  updateGraphSize() {
+  refreshCanvasSpace() {
     this.xCanvasInterval = new Interval(0, this.$canvas.width);
     this.yCanvasInterval = new Interval(0, this.$canvas.height);
     this.canvasCoordSpace = new CoordSpace(this.xCanvasInterval, this.yCanvasInterval);
@@ -97,12 +104,12 @@ class GraphController {
   /**
    * @return {GraphController}
    */
-  updateYScaleUsingHistoricValues() {
+  updateYIntervalUsingHistoricValues() {
     const maxHistoricValue = _.max(this.values);
     const minHistoricValue = _.min(this.values);
-    this.yInteval.a = Math.min(minHistoricValue, this.minYInterval.a) - this.marginOffset;
-    this.yInteval.b = Math.max(maxHistoricValue, this.minYInterval.b) + this.marginOffset;
-    this.refreshVirtualSpace();
+    const a = Math.min(minHistoricValue, this.minYInterval.a) - this.marginOffset;
+    const b = Math.max(maxHistoricValue, this.minYInterval.b) + this.marginOffset;
+    this.setYInterval(new Interval(a, b));
     return this;
   }
 
@@ -182,7 +189,7 @@ class GraphController {
       .transformSpace(this.canvasCoordSpace)
       .invertYAxis();
 
-    this.drawLine(fromCoord, toCoord, 1, '#f00');
+    this.drawLine(fromCoord, toCoord, 2, '#f00');
 
     fromCoord = new Coord(this.xInterval.a, this.minYInterval.b);
     fromCoord
@@ -196,7 +203,7 @@ class GraphController {
       .transformSpace(this.canvasCoordSpace)
       .invertYAxis();
 
-    this.drawLine(fromCoord, toCoord, 1, '#f00');
+    this.drawLine(fromCoord, toCoord, 2, '#f00');
 
     return this;
   }
@@ -214,8 +221,11 @@ class GraphController {
     return this;
   }
 
+  /**
+   * @return {GraphController}
+   */
   draw() {
-    this.updateYScaleUsingHistoricValues();
+    this.updateYIntervalUsingHistoricValues();
     this.clearCanvas();
     this.drawFixedLines();
     this.drawLimitLines();

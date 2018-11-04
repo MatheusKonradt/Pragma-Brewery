@@ -1,11 +1,12 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import './ContainerCard.sass';
-import Card from "../components/Card";
-import Grid from "../components/Grid";
-import GridItem from "../components/GridItem";
-import Text from "../components/Text";
-import Graph from "../components/Graph";
+import Card from './Card';
+import Grid from './Grid';
+import GridItem from './GridItem';
+import Text from './Text';
+import Graph from './Graph';
 
 class ContainerCard extends React.Component {
   constructor(props) {
@@ -19,21 +20,27 @@ class ContainerCard extends React.Component {
   }
 
   render() {
-    const classes = [this.classes.root, this.props.className].join(' ');
+    let classes = [this.classes.root, this.props.className];
+    if(this.props.isOutsideTemperatureRange) {
+      classes.push('-error');
+    }
+    classes = classes.join(' ');
     return (
       <Card className={classes}>
         <Grid>
-          <GridItem xs={3} ys={3}>
+          <GridItem xs={5} ys={3}>
             <Text variant="h3">{this.props.containerId}</Text>
           </GridItem>
-          <GridItem xs={5} ys={3}>
+          <GridItem xs={4} ys={3}>
             <Text variant="h3">{this.props.min}ºC - {this.props.max}ºC</Text>
           </GridItem>
-          <GridItem xs={4} ys={3} className={this.classes.tempDisplay}>
-            <Text variant="h2">{this.props.temperature.toFixed(1)}ºC</Text>
+          <GridItem xs={3} ys={3} className={this.classes.tempDisplay}>
+            <Text variant="h2">
+              {this.props.temperature.toFixed(1)}ºC
+            </Text>
           </GridItem>
           <GridItem xs={12} ys={9}>
-            <Graph value={this.props.temperature} min={this.props.min} max={this.props.max}/>
+            <Graph value={this.props.temperature} min={this.props.min} max={this.props.max} containerId={this.props.containerId} />
           </GridItem>
         </Grid>
       </Card>

@@ -4,6 +4,7 @@ import _ from 'lodash';
 import './Graph.sass';
 import GraphController from "../services/GraphController";
 import Interval from "../services/Interval";
+import GraphFactory from '../services/GraphFactory';
 
 const MAX_DISPLAYED_VALUES = 20;
 
@@ -18,7 +19,8 @@ class Graph extends React.Component {
   }
 
   componentDidMount() {
-    this.controller = new GraphController(this.$canvas.current);
+    this.controller = GraphFactory.getGraphControllerInstanceForContainerId(this.props.containerId);
+    this.controller.setCanvas(this.$canvas.current);
     this.controller.setYInterval(new Interval(0, 8));
     this.controller.setXInterval(new Interval(0, MAX_DISPLAYED_VALUES));
     this.controller.setMinYInterval(new Interval(this.props.min, this.props.max));
@@ -58,6 +60,7 @@ Graph.propTypes = {
   value: PropTypes.number,
   min: PropTypes.number,
   max: PropTypes.number,
+  containerId: PropTypes.string,
 };
 
 export default Graph;

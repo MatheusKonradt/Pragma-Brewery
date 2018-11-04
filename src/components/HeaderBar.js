@@ -32,7 +32,9 @@ class HeaderBar extends React.Component {
           <Icon name="dehaze"/>
         </a>
         <Text variant="h1" className={this.classes.headerTitle}>Pragma Brewery</Text>
-        <AsideMenu open={this.state.asideMenuOpen}/>
+        <AsideMenu open={this.state.asideMenuOpen}>
+          {this.props.children}
+        </AsideMenu>
       </header>
     );
   }

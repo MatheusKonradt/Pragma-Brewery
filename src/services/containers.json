@@ -1,0 +1,38 @@
+[
+  {
+    "containerId": "Pilsner",
+    "min": 4,
+    "max": 6,
+    "thermometerId": 0
+  },
+  {
+    "containerId": "IPA",
+    "min": 4,
+    "max": 5,
+    "thermometerId": 1
+  },
+  {
+    "containerId": "Lager",
+    "min": 4,
+    "max": 7,
+    "thermometerId": 2
+  },
+  {
+    "containerId": "Stout",
+    "min": 6,
+    "max": 8,
+    "thermometerId": 3
+  },
+  {
+    "containerId": "Wheat beer",
+    "min": 3,
+    "max": 5,
+    "thermometerId": 4
+  },
+  {
+    "containerId": "Pale Ale",
+    "min": 4,
+    "max": 6,
+    "thermometerId": 5
+  }
+]

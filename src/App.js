@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import './App.sass';
 import HeaderBar from './components/HeaderBar';
 import Card from './components/Card';
@@ -7,39 +8,36 @@ import GridItem from './components/GridItem';
 import ThermometersFacade from './services/ThermometersFacade';
 import Text from './components/Text';
 import ContainerCard from './components/ContainerCard';
+import alarm from './media/alarm.mp3';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import DashboardView from './views/DashboardView';
+import Icon from './components/Icon';
+import ThermometersView from './views/ThermometersView';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      measurements: [],
-    };
     this.classes = {
-      containerCardGrid: 'containerCardGrid',
-    };
-
-    const thermometers = ThermometersFacade.getInstance();
-    const measurements = thermometers.getMeasurements();
-    this.setState({ measurements });
-    setInterval(() => {
-      const measurements = thermometers.getMeasurements();
-      this.setState({ measurements });
-    }, 5000);
+      root: 'App',
+      list: 'list'
+    }
   }
-
-  componenDidMount() {
-
-  }
-
 
   render() {
     return (
-      <div className="App">
-        <HeaderBar />
-        <Grid>
-          {this.state.measurements.map(measurement => (<GridItem key={measurement.containerId} className={this.classes.containerCardGrid}><ContainerCard {...measurement} /></GridItem>))}
-        </Grid>
-      </div>
+      <Router>
+        <div className={this.classes.root}>
+          <HeaderBar>
+            <ul className={this.classes.list}>
+              <li><Link to='/dashboard'><Icon name="dashboard" size={36} /><Text variant="span">Dashboard</Text></Link></li>
+              <li><Link to='/thermometers'><Icon name="build" size={36} /><Text variant="span">Thermometers</Text></Link></li>
+            </ul>
+          </HeaderBar>
+          <Route exact path="/" component={DashboardView} />
+          <Route exact path="/dashboard" component={DashboardView} />
+          <Route exact path="/thermometers" component={ThermometersView} />
+        </div>
+      </Router>
     );
   }
 }

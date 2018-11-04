@@ -1,5 +1,18 @@
 .ContainerCard
+  background-color: #fff
   height: 150px
 
   .tempDisplay
     text-align: right
+
+  &.-error
+    animation: asd 1s infinite
+
+    .Text
+      color: red
+
+@keyframes asd
+  0%
+    background-color: #fff
+  50%
+    background-color: #ff6b64

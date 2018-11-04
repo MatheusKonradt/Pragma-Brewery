@@ -13,8 +13,13 @@ class Icon extends React.Component {
   }
 
   render() {
+    let classes = [this.classes.root, this.props.className];
+
+    classes.push(`size-${this.props.size}`);
+
+    classes = classes.join(' ');
     return (
-      <i className={[this.classes.root, this.props.className].join(' ')} style={this.props.themes.root}>
+      <i className={classes} style={this.props.themes.root}>
         {this.props.name}
       </i>
     );
@@ -24,11 +29,14 @@ class Icon extends React.Component {
 Icon.defaultProps = {
   themes: {},
   className: '',
+  size: 24,
 };
 
 Icon.propTypes = {
   themes: PropTypes.object,
   className: PropTypes.string,
+  name: PropTypes.string,
+  size: PropTypes.number,
 };
 
 export default Icon;

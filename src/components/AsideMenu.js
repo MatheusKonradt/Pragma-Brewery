@@ -1,33 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './AsideMenu.sass';
+import Icon from './Icon';
+import Text from './Text';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 
 class AsideMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      open: false,
+    };
     this.classes = {
       root: 'AsideMenu',
       menu: 'menu',
       open: '-open',
       overlay: 'overlay',
+      list: 'list',
     };
     this.themes = {};
   }
 
+  onClickOverlay() {
+    this.setState({ open: !this.state.open });
+  }
+
   render() {
     let classes = [this.classes.root, this.props.className];
-    if (this.props.open) {
+    if (this.props.open !== this.state.open) {
       classes.push(this.classes.open);
     }
     classes = classes.join(' ');
     return (
-      <div className={classes} style={this.props.themes.root}>
-        <div className={this.classes.menu}>
+      <div className={classes} style={this.themes.root}>
+        <div className={this.classes.menu} onClick={this.onClickOverlay.bind(this)}>
           {this.props.children}
         </div>
-        <div className={this.classes.overlay}>
-        </div>
+        <div className={this.classes.overlay} onClick={this.onClickOverlay.bind(this)} />
       </div>
     );
   }
@@ -36,13 +45,13 @@ class AsideMenu extends React.Component {
 AsideMenu.defaultProps = {
   themes: {},
   className: '',
-  open: false
+  open: false,
 };
 
 AsideMenu.propTypes = {
   themes: PropTypes.object,
   className: PropTypes.string,
-  open: PropTypes.bool
+  open: PropTypes.bool,
 };
 
 export default AsideMenu;

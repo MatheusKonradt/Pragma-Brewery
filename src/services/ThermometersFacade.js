@@ -1,5 +1,7 @@
 import EventEmitter from 'events';
 import _ from 'lodash';
+import Thermometer from './Thermometer';
+import containers from './containers';
 
 class ThermometersFacade extends EventEmitter {
   /**
@@ -16,35 +18,33 @@ class ThermometersFacade extends EventEmitter {
 
   constructor() {
     super();
-    this.measurements = [
-      {
-        containerId: 'Pilsner', temperature: 5, min: 4, max: 6,
-      },
-      {
-        containerId: 'IPA', temperature: 5, min: 4, max: 5,
-      },
-      // { containerId: '#2', temperature: 4 },
-      // { containerId: '#3', temperature: 4 },
-      // { containerId: '#4', temperature: 4 },
-      // { containerId: '#5', temperature: 4 },
-      // { containerId: '#6', temperature: 4 },
-      // { containerId: '#7', temperature: 4 },
-      // { containerId: '#8', temperature: 4 },
-      // { containerId: '#9', temperature: 4 },
-      // { containerId: '#10', temperature: 4 },
-    ];
+    this.containers = containers;
+    this.thermomethers = [
+      new Thermometer(5),
+      new Thermometer(4.5),
+      new Thermometer(5.2),
+      new Thermometer(7),
+      new Thermometer(4),
+      new Thermometer(5),
+    ]
+  }
+
+  /**
+   * @return {Thermometer[]}
+   */
+  getThermometers() {
+    return this.thermomethers;
   }
 
   /**
    * @return {Array<{containerId: string, temperature: number}>}
    */
   getMeasurements() {
-    const max = 0.1;
-    const min = -0.1;
-    for (const measurement of this.measurements) {
-      measurement.temperature += Math.random() * (max - min) + min;
+    for (const container of this.containers) {
+      container.temperature = this.thermomethers[container.thermometerId].getTemperature();
+      container.isOutsideTemperatureRange = container.temperature > container.max || container.temperature < container.min
     }
-    return this.measurements;
+    return this.containers;
   }
 }
 

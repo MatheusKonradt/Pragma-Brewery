@@ -1,3 +1,10 @@
+$sizes: 12 24 36 48
+
 .Icon
-  line-height: 24px
-  height: 24px
+
+  @each $size in $sizes
+    &.size-#{$size}
+      line-height: #{$size}px
+      height: #{$size}px
+      width: #{$size}px
+      font-size: #{$size}px

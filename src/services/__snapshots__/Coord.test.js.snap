@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should transform coord from one space to another 1`] = `
+Coord {
+  "space": CoordSpace {
+    "xInterval": Interval {
+      "a": 1,
+      "b": 5,
+    },
+    "yInterval": Interval {
+      "a": -8,
+      "b": 12,
+    },
+  },
+  "x": 0,
+  "y": -3.5555555555555562,
+}
+`;

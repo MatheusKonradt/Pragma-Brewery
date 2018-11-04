@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+<header
+  className="HeaderBar "
+>
+  <a
+    className="menu"
+    href="#"
+    onClick={[Function]}
+  >
+    <i
+      className="Icon material-icons  size-24"
+    >
+      dehaze
+    </i>
+  </a>
+  <h1
+    className="Text headerTitle"
+  >
+    Pragma Brewery
+  </h1>
+  <div
+    className="AsideMenu "
+  >
+    <div
+      className="menu"
+      onClick={[Function]}
+    />
+    <div
+      className="overlay"
+      onClick={[Function]}
+    />
+  </div>
+</header>
+`;

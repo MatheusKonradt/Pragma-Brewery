@@ -4,17 +4,23 @@
   top: 49px
   left: 0
   position: absolute
-  width: 100vh
-  height: 100vh
-  display: none
+  opacity: 0
+  width: 0
+  height: 0
+  transition: opacity 300ms
+  overflow: hidden
 
   &.-open
     display: block
+    width: 100vw
+    height: 100vh
+    opacity: 1
+    transition: opacity 300ms
 
     .menu
       transform: translateX(0)
       opacity: 1
-      transition: all 400ms
+      transition: all 300ms ease 200ms
 
   .menu
     position: absolute
@@ -23,14 +29,32 @@
     border-right: 1px solid #000
     transform: translateX(-100%)
     opacity: 0
-    transition: all 200ms
     z-index: $zindexModal
-    min-width: 200px
+    min-width: 250px
 
   .overlay
     position: absolute
-    width: 100vh
-    height: 100vh
+    width: 100%
+    height: 100%
     background: #000
     opacity: .5
     z-index: $zindexModalOverlay
+
+  ul.list
+    margin: 20px
+
+    li
+      list-style: none
+      margin-bottom: 10px
+
+      a
+        color: #000
+        text-decoration: none
+
+        .Icon
+          vertical-align: middle
+
+        .Text
+          vertical-align: middle
+          margin-left: 10px
+          font-size: 1.2em

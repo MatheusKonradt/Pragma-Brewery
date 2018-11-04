@@ -16,8 +16,9 @@ class GridItem extends React.Component {
   render() {
     const xsClass = `xs-${this.props.xs}`;
     const ysClass = `ys-${this.props.ys}`;
+    const vaClass = `va-${this.props.va}`;
     return (
-      <div className={[this.classes.root, xsClass, ysClass, this.props.className].join(' ')} style={this.props.themes.root}>
+      <div className={[this.classes.root, xsClass, ysClass, vaClass, this.props.className].join(' ')} style={this.props.themes.root}>
         {this.props.children}
       </div>
     );
@@ -29,6 +30,7 @@ GridItem.defaultProps = {
   className: '',
   xs: 12,
   ys: 12,
+  va: 'top',
 };
 
 GridItem.propTypes = {
@@ -36,6 +38,7 @@ GridItem.propTypes = {
   className: PropTypes.string,
   xs: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   ys: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  va: PropTypes.oneOf(['top', 'middle', 'bottom']),
 };
 
 export default GridItem;
